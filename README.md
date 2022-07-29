@@ -1,13 +1,17 @@
 ## Автоматизированная система анализа данных и передачи данных по жизненным показателям пациентов: (пульс, сатурация, температура, давление и т.д) на основе микросервисной архитектуры ##
-Генерирует данные в сервисе gateway, отправляет их в regular-servise с помощью ActiveMQ, откуда данные кладутся в БД и отправляется ежедневный отчет лечащим докторам о состоянии пациентов перед началом рабочего дня  
+Генерирует данные в сервисе gateway, отправляет их в regular-service с помощью ActiveMQ, откуда данные кладутся в БД и отправляется ежедневный отчет лечащим докторам о состоянии пациентов перед началом рабочего дня  
 Если показатели пациентов, лежащих в реанимации требуют немедленного реагирования, то отправляется сообщение по http в emergency-service, откуда отправляется сообщение в телеграм лечащему доктору  
-Подробнее про каждый сервис написано внутри каждого сервиса
+Подробнее про каждый сервис написано внутри каждого сервиса  
+[user-service](https://github.com/knoxville1912/medicine/blob/main/README.md)  
+[regular-service](https://github.com/knoxville1912/Regular-service/blob/main/README.md)  
+[gateway-service](https://github.com/knoxville1912/gateway-service/blob/main/README.md)  
+[emergency-service](https://github.com/knoxville1912/emergency-service/blob/main/README.md)  
 
 ## Использование ##
 В docker запускаем контейнеры activeMQ и postgresSQL и запускаем все сервисы
 
 ## Технологии ##
-Библиотека FileWorker, для парсинга файлов  
+Библиотека FileWorker, для парсинга файлов, описание библиотеки здесь: [FileWorker](https://github.com/knoxville1912/FileWorker/blob/main/README.md)  
 ActiveMQ  
 PostgresSQL  
 Docker  
